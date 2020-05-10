@@ -1,6 +1,6 @@
 ## Goals
 
-Reverse-engeneering and documenting Microsoft Catapult FPGA board (v2: Pikes Peak) so one can use it as a readily avaliable and cheap development kit for Intel Stratix V FPGA.
+Reverse-engeneering and documenting Microsoft Catapult FPGA board (v2: Pikes Peak) so one can use it as a readily available and cheap development kit for Intel Stratix V FPGA.
 
 ## Overview of project Catapult
 
@@ -8,8 +8,9 @@ Reverse-engeneering and documenting Microsoft Catapult FPGA board (v2: Pikes Pea
 [Large-Scale Reconfigurable Computing in a Microsoft Datacenter (PDF)](https://www.microsoft.com/en-us/research/uploads/prod/2014/06/HC26.12.520-Recon-Fabric-Pulnam-Microsoft-Catapult.pdf)  
 [The Catapult Project - An FPGA view of the Data Center (PDF)](http://www.prime-project.org/wp-content/uploads/sites/206/2018/02/Talk-7-Dan-Fay-The-Catapult-Project-%E2%80%93-An-FPGA-view-of-the-Data-Center.pdf)  
 
-There's several versions of Catapult board. The one we're working here is the OpenCloud Mizzanine Card (aka v2 "Pikes Peak", Microsoft p/n `X900563-001`):
-
+There's several versions of Catapult board. The one we're working here is the OpenCloud Mezzanine Card (aka v2 "Pikes Peak", Microsoft p/n `X900563-001`):
+![](/docs/pics/board_top.jpeg)
+![](/docs/pics/board_bottom.jpeg)
 
 Known p/n for this board:
 - `X900563-001` (Microsoft OEM p/n)
@@ -60,22 +61,24 @@ Unfortunately, there's no mechanical specifications for Tray Mezzanine Card in O
 
 ### BOM
 
-See [bom.xls](docs/bom.xls).
+See [bom.xlsx](/docs/bom.xlsx).
 
 ### FPGA pins
 
-See [fpga_io.xls](docs/fpga_io.xls).
+See [fpga_io.xlsx](/docs/fpga_io.xlsx).
 
 Twitter user [@occamlab](https://twitter.com/occamlab) shared with us [some information about FPGA pins designations](http://virtlab.occamlab.com/home/zapisnik/microsoft-catapult-v2) (especially PCIe and QSFP Tx), but I didn't have a chance to check them.
 
 ### USB
 
 USB connector `J3` pinout (thanks to [Jan Marjanovič](https://twitter.com/janmarjanovic) for sharing [his RE efforts](https://j-marjanovic.io/stratix-v-accelerator-card-from-ebay.html)):
+![](/docs/pics/usb.png)
 
 There's some vague mentions online that one can use FT232H as a ByteBlaster by changing its VID/PID by modifying driver files or installing external ROM chip to the board (U12).
 
 Right now you can use it with OpenOCD to check IDCODE:
 
+![](/docs/pics/openocd.png)
 
 OpenOCD config file for FT232H:
 ```
@@ -99,4 +102,9 @@ transport select jtag
 ### JTAG
 
 I've been able to connect an actual USB ByteBlaster after soldering to following pins:
+![](/docs/pics/jtag_points.png)
 
+## Additional resources
+
+- Jan Marjanovič's blog page covering Catapult board RE: https://j-marjanovic.io/stratix-v-accelerator-card-from-ebay.html  
+- [@occamlab](https://twitter.com/occamlab)'s blog page: http://virtlab.occamlab.com/home/zapisnik/microsoft-catapult-v2
