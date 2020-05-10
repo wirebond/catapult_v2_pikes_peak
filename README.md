@@ -104,6 +104,10 @@ transport select jtag
 I've been able to connect an actual USB ByteBlaster after soldering to following pins:
 ![](/docs/pics/jtag_points.png)
 
+### OCS Tray Mezzanine adapter
+
+Jan Marjanovič designed adapter for this board: https://github.com/j-marjanovic/ocs-tray-mezzanine-adapter.
+
 ## Additional resources
 
 - Jan Marjanovič's blog page covering Catapult board RE: https://j-marjanovic.io/stratix-v-accelerator-card-from-ebay.html  
